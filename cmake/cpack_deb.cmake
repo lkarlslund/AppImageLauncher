@@ -7,9 +7,9 @@ execute_process(
     OUTPUT_VARIABLE _lsb_release_output
 )
 
-if(_lsb_release_output MATCHES bionic)
-    message(STATUS "platform is bionic, enabling compatibility mode for CPack Debian packaging")
-    set(_compatibility_level bionic)
+if(_lsb_release_output MATCHES noble)
+    message(STATUS "platform is noble, enabling compatibility mode for CPack Debian packaging")
+    set(_compatibility_level noble)
 elseif(_lsb_release_output MATCHES cosmic)
     message(STATUS "platform is cosmic, enabling compatibility mode for CPack Debian packaging")
     set(_compatibility_level cosmic)
@@ -23,7 +23,7 @@ else()
     set(_compatibility_level "")
 endif()
 
-set(CPACK_DEBIAN_COMPATIBILITY_LEVEL ${_compatibility_level} CACHE STRING "Available values: bionic (Ubuntu 18.04 LTS), cosmic (Ubuntu 18.10), disco (Ubuntu 19.04), eoan (Ubuntu 19.10)")
+set(CPACK_DEBIAN_COMPATIBILITY_LEVEL ${_compatibility_level} CACHE STRING "Available values: noble (Ubuntu 18.04 LTS), cosmic (Ubuntu 18.10), disco (Ubuntu 19.04), eoan (Ubuntu 19.10)")
 
 unset(_lsb_release_output)
 unset(_compatibility_level)
@@ -73,7 +73,7 @@ set(CPACK_DEBIAN_APPIMAGELAUNCHER_PACKAGE_NAME "appimagelauncher")
 # TODO: packagers watch out: you should set this to depend on a libappimage package, and avoid installing the library
 # to a custom location in install.cmake
 
-if(CPACK_DEBIAN_COMPATIBILITY_LEVEL STREQUAL "bionic" OR CPACK_DEBIAN_COMPATIBILITY_LEVEL STREQUAL "cosmic" OR CPACK_DEBIAN_COMPATIBILITY_LEVEL STREQUAL "disco" OR CPACK_DEBIAN_COMPATIBILITY_LEVEL STREQUAL "eoan")
+if(CPACK_DEBIAN_COMPATIBILITY_LEVEL STREQUAL "noble" OR CPACK_DEBIAN_COMPATIBILITY_LEVEL STREQUAL "cosmic" OR CPACK_DEBIAN_COMPATIBILITY_LEVEL STREQUAL "disco" OR CPACK_DEBIAN_COMPATIBILITY_LEVEL STREQUAL "eoan")
     set(CPACK_DEBIAN_APPIMAGELAUNCHER_PACKAGE_DEPENDS "libqt5dbus5 (>= 5.9), libqt5widgets5 (>= 5.2.1), libqt5gui5 (>= 5.2.1), libqt5core5a (>= 5.2.1), binfmt-support (>= 2.0), systemd, libcurl4")
 else()
     set(CPACK_DEBIAN_APPIMAGELAUNCHER_PACKAGE_DEPENDS "libqt5dbus5 (>= 5.2.1), libqt5widgets5 (>= 5.2.1), libqt5gui5 (>= 5.2.1), libqt5core5a (>= 5.2.1), binfmt-support (>= 2.0), systemd, libcurl3")

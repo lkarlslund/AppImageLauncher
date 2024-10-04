@@ -1,8 +1,8 @@
-FROM i386/ubuntu:bionic
+FROM arm64v8/ubuntu:noble
 
-ENV ARCH=i386 DIST=bionic CI=1
+ENV ARCH=arm64 DIST=noble CI=1 CMAKE_ARCH=aarch64
 
-COPY ./install-deps.sh /
+COPY install-deps.sh /
 RUN bash -xe install-deps.sh
 
 # create unprivileged user for non-build-script use of this image

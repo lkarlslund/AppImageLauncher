@@ -12,25 +12,25 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - NAME: bionic x86_64
+          - NAME: noble x86_64
             ARCH: x86_64
-            DIST: bionic
-          - NAME: bionic i386
+            DIST: noble
+          - NAME: noble i386
             ARCH: i386
-            DIST: bionic
-          - NAME: bionic arm64
+            DIST: noble
+          - NAME: noble arm64
             ARCH: arm64
-            DIST: bionic
-          - NAME: bionic armhf
+            DIST: noble
+          - NAME: noble armhf
             ARCH: armhf
-            DIST: bionic
-          - NAME: Lite AppImage bionic x86_64
+            DIST: noble
+          - NAME: Lite AppImage noble x86_64
             ARCH: x86_64
-            DIST: bionic
+            DIST: noble
             BUILD_LITE: 1
-          - NAME: Lite AppImage bionic i386
+          - NAME: Lite AppImage noble i386
             ARCH: i386
-            DIST: bionic
+            DIST: noble
             BUILD_LITE: 1
 
     name: Build Docker image ${{ matrix.NAME }}
