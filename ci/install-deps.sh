@@ -73,9 +73,10 @@ packages=(
     clang-18
 
     cmake
+    xxd
 
     # needed for adduser
-    adduser 
+    adduser
 )
 
 if [[ "$BUILD_LITE" == "" ]]; then
