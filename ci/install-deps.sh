@@ -73,6 +73,9 @@ packages=(
     clang-18
 
     cmake
+
+    # needed for adduser
+    sudo 
 )
 
 if [[ "$BUILD_LITE" == "" ]]; then
