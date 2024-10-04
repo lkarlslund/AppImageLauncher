@@ -75,7 +75,7 @@ packages=(
     cmake
 
     # needed for adduser
-    sudo 
+    adduser 
 )
 
 if [[ "$BUILD_LITE" == "" ]]; then
