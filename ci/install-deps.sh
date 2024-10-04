@@ -61,7 +61,7 @@ packages=(
     libboost-filesystem-dev
     librsvg2-dev
     librsvg2-bin
-    libssl1.0.0
+    libssl-dev
     rpm
     rpm2cpio
     liblzma-dev
@@ -70,7 +70,7 @@ packages=(
     # clang -target arm-linux-gnueabihf ...
     # we must use clang > 3.8.0, and newer versions should work as drop-in replacement, so we can just use the newest
     # clang available on xenial on all platforms
-    clang-8
+    clang-18
 )
 
 if [[ "$BUILD_LITE" == "" ]]; then
@@ -147,5 +147,5 @@ fi
 # provide clang/clang++ symlink to actual clang binaries
 # without this, boost (dep from libappimage) doesn't build properly, as it can't find the compiler binaries
 # since we have to install this symlink anyway, we're also using it when passing CMAKE_C{,XX}_COMPILER in the build script
-update-alternatives --install /usr/bin/clang clang /usr/bin/clang-8 100
+update-alternatives --install /usr/bin/clang clang /usr/bin/clang-18 100
 update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-8 100
