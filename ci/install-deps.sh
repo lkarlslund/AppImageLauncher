@@ -150,4 +150,4 @@ fi
 # without this, boost (dep from libappimage) doesn't build properly, as it can't find the compiler binaries
 # since we have to install this symlink anyway, we're also using it when passing CMAKE_C{,XX}_COMPILER in the build script
 update-alternatives --install /usr/bin/clang clang /usr/bin/clang-18 100
-update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-8 100
+update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-18 100
